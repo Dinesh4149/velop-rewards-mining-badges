@@ -1,0 +1,1 @@
+30 individual transparent production assets. The UI references these WebP files directly. PNG files in this folder are retained as master/source assets.
