@@ -427,7 +427,7 @@ input:focus { outline: none; }
 .mining-card {
   position: relative;
   width: 100%;
-  aspect-ratio: 1984 / 793;
+  aspect-ratio: 1842 / 854;
   overflow: hidden;
   border: 1px solid var(--gold-border);
   border-radius: var(--radius-xl);
@@ -912,21 +912,6 @@ input:focus { outline: none; }
   color: var(--gold);
   border-color: rgba(215,169,75,.2);
   background: rgba(215,169,75,.05);
-}
-
-/* Lock overlay */
-.badge-lock-overlay {
-  position: absolute;
-  z-index: 3;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--text-primary);
-  background: rgba(11,14,25,.85);
-  border: 1px solid rgba(215,169,75,.4);
-  box-shadow: 0 6px 18px rgba(0,0,0,.35);
 }
 
 /* ── Journey Summary ───────────────────────────────────────────── */
@@ -1440,7 +1425,7 @@ html[data-reduced-motion="true"] *::after {
 .mining-visual {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1984 / 793;
+  aspect-ratio: 1842 / 854;
   min-height: 260px;
   background: #091022;
 }
@@ -1708,9 +1693,9 @@ html[data-reduced-motion="true"] *::after {
   .mining-section-intro .section-title { font-size: clamp(1.8rem, 8vw, 2.35rem); }
   .journey-link { align-self: flex-start; }
   .mining-station { border-radius: 18px; }
-  .mining-visual { aspect-ratio: 1984 / 920; min-height: 0; }
+  .mining-visual { aspect-ratio: 1842 / 854; min-height: 96px; }
   .mining-banner-image { object-fit: cover; object-position: center; }
-  .mining-banner-status { top: 10px; right: 10px; padding: 7px 9px; font-size: 7px; }
+  .mining-banner-status { top: 10px; right: 10px; padding: 8px 11px; font-size: 8px; }
   .mining-energy { display: none; }
   .mining-control-panel { padding: 12px; }
   .mining-control-top { align-items: flex-start; }
@@ -1733,7 +1718,6 @@ html[data-reduced-motion="true"] *::after {
 }
 
 @media (max-width: 480px) {
-  .mining-visual { aspect-ratio: 1.72 / 1; }
   .mining-control-top { gap: 8px; }
   .mining-session-chip { display: none; }
   .mining-control-main { gap: 10px; }

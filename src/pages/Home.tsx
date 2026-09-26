@@ -49,7 +49,6 @@ function BadgeArt({ badge, large = false, unlocked = true }: { badge: Badge; lar
   return (
     <div className={`badge-art has-asset ${badge.className} ${large ? "large" : ""} ${unlocked ? "" : "is-locked"} stage-${badge.stage} ${badge.level === 30 ? "capstone" : ""}`} aria-hidden="true">
       <img src={badge.asset} alt="" width={320} height={320} loading={large ? "eager" : "lazy"} decoding="async" sizes={large ? "220px" : "150px"} />
-      {!unlocked && <span className="badge-lock-overlay"><LockKeyhole size={18} /></span>}
     </div>
   );
 }
@@ -61,7 +60,7 @@ function StatCard({ icon: Icon, label, value, detail }: { icon: typeof Coins; la
 export default function Home() {
   const [activeNav, setActiveNav] = useState<View>("Mine & Earn");
   const [isMining, setIsMining] = useState(false);
-  const [unlockedCount, setUnlockedCount] = useState(0);
+  const [unlockedCount, setUnlockedCount] = useState(badges.length);
   const [selectedLevel, setSelectedLevel] = useState(1);
   const [reward, setReward] = useState(0);
   const [balance, setBalance] = useState(2480);
@@ -111,11 +110,11 @@ export default function Home() {
 
   const resetJourney = () => {
     setIsMining(false);
-    setUnlockedCount(0);
+    setUnlockedCount(badges.length);
     setSelectedLevel(1);
     setReward(0);
     setBalance(2480);
-    toast("Journey reset", { description: "Your badge journey is back to Level 00. Start again from the first milestone." });
+    toast("Journey reset", { description: "Mining, wallet and session counters are back to their starting state. All 30 badges stay unlocked." });
   };
 
   const openView = (view: View) => {
@@ -153,7 +152,7 @@ export default function Home() {
           <div className="mining-visual">
             <picture className="mining-banner-picture">
               <source srcSet="/assets/velop-mine-earn-banner.webp" type="image/webp" />
-              <img src="/assets/velop-mine-earn-banner.png" alt="VELOOP Mine and Earn mining station" className="mining-banner-image" width={1984} height={793} decoding="async" fetchPriority="high" />
+              <img src="/assets/velop-mine-earn-banner.png" alt="VELOOP Mine and Earn mining station" className="mining-banner-image" width={1842} height={854} decoding="async" fetchPriority="high" />
             </picture>
             <div className="mining-visual-shade" aria-hidden="true" />
             <div className={`mining-banner-status ${isMining ? "active" : ""}`} aria-live="polite"><span className="live-dot" /> {isMining ? "MINING ACTIVE" : "MINING READY"} <b>·</b> {reward} VE <b>·</b> +1/s</div>
